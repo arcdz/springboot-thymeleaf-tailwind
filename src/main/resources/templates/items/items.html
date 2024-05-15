@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items List</title>
+    <link rel="stylesheet" th:href="@{/output.css}">
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    <th:block th:each="item : ${items}">
+        <tr>
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.email}"></td>
+            <td>
+                <button><a th:href="@{|/items/${item.id}|}">Info</a></button>
+                <button><a th:href="@{|/items/edit/${item.id}|}">Edit</a></button>
+            </td>
+<!--            <td sec:authorize="hasRole('ADMIN')"><button><a th:href="@{|/books/delete/${book.title}|}">Delete</a></button></td>-->
+        </tr>
+    </th:block>
+
+</table>
+<a href="/items/add">Add new item</a>
+<!--<div th:insert="~{parts/footer :: footer}"></div>-->
+</body>
+</html>

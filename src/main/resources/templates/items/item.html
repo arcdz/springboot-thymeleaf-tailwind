@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Item ' + ${item.id}"></title>
+</head>
+<body>
+<table>
+    <tr><th>ID</th>       <td th:text="${item.id}"></td>     </tr>
+    <tr><th>Name</th>     <td th:text="${item.name}"></td>         </tr>
+    <tr><th>Email</th>    <td th:text="${item.email}"></td>         </tr>
+    <tr>
+        <td><button><a th:href="@{|/items|}">List</a></button></td>
+        <td><button><a th:href="@{|/items/edit/${item.id}|}">Edit</a></button></td>
+    </tr>
+</table>
+</body>
+</html>

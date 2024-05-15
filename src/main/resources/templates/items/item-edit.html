@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Item ' + ${item.id} + 'Edit'"></title>
+    <link rel="stylesheet" th:href="@{/output.css}">
+</head>
+<body>
+<h1 th:text="'Item ' + ${item.id} + 'Edit'"></h1>
+<form method="post" th:action="@{|/items/edit/${item.id}|}" th:object="${item}">
+    <p>
+        <label for="name">Name</label>
+        <input id="name" placeholder="Name" th:field="*{name}" th:value="${item.name}" type="text">
+        <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
+    </p>
+    <p>
+        <label for="email">Email</label>
+        <input id="email" placeholder="Email" th:field="*{email}" th:value="${item.email}" type="text">
+        <span th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
+    </p>
+    <p>
+        <input type="submit" value="Edit Item">
+        <input type="reset" value="Reset"/>
+    </p>
+</form>
+</body>
+</html>
